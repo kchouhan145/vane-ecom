@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vane | Beyond the trend</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sand: "#efe4d3",
+                        ink: "#1c232b",
+                        caramel: "#9d5c3d",
+                        clay: "#d8b49c"
+                    },
+                    fontFamily: {
+                        display: ["Fraunces", "serif"],
+                        body: ["Space Grotesk", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body class="font-body bg-sand text-ink min-h-screen">
+    <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_10%_20%,#ffffff_0%,#efe4d3_35%,#efd4bf_100%)]"></div>
+    <nav class="w-full fixed top-0 left-0 px-4 md:px-8 py-4 bg-white/70 backdrop-blur-md z-20 border-b border-black/5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+            <a href="/" class="leading-tight">
+                <span class="block text-2xl font-display tracking-tight">Vane</span>
+                <span class="block text-[10px] md:text-xs text-black/60 uppercase tracking-[0.2em]">Beyond the trend</span>
+            </a>
+            <div class="flex items-center gap-1 md:gap-2 text-xs md:text-sm">
+                <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/">Home</a>
+                <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/shop">Shop</a>
+                <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/cart">Cart</a>
+                <% if (userLoggedIn) { %>
+                    <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/">My Home</a>
+                    <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/users/logout">User Logout</a>
+                <% } else { %>
+                    <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/users/login">User Login</a>
+                <% } %>
+                <% if (ownerLoggedIn) { %>
+                    <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/owners/admin">Admin</a>
+                    <a class="px-3 py-2 rounded-full bg-caramel text-white hover:opacity-90" href="/owners/create">Add Product</a>
+                    <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/owners/logout">Logout</a>
+                <% } else { %>
+                    <a class="px-3 py-2 rounded-full hover:bg-black/5" href="/owners/login">Owner Login</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>

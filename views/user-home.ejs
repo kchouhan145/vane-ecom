@@ -1,0 +1,29 @@
+<%- include('./partials/header') %>
+
+<main class="pt-28 pb-10 px-4 md:px-10">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-6">
+        <section class="lg:col-span-2 rounded-3xl bg-ink text-white p-8 md:p-10 shadow-2xl overflow-hidden relative">
+            <p class="uppercase tracking-[0.2em] text-xs text-white/70">Welcome Back</p>
+            <h1 class="mt-3 text-4xl md:text-5xl font-display leading-tight">Hello, <%= user.fullName || 'Vane User' %></h1>
+            <p class="mt-4 text-white/75 max-w-xl">Your curated style feed is ready. Browse new arrivals and continue your Vane experience.</p>
+
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+                <img class="h-28 md:h-36 w-full object-cover rounded-2xl" src="/images/1bag.png" alt="Bag 1">
+                <img class="h-28 md:h-36 w-full object-cover rounded-2xl" src="/images/2bag.png" alt="Bag 2">
+                <img class="h-28 md:h-36 w-full object-cover rounded-2xl" src="/images/4bag.png" alt="Bag 4">
+                <img class="h-28 md:h-36 w-full object-cover rounded-2xl" src="/images/6bag.png" alt="Bag 6">
+            </div>
+        </section>
+
+        <section class="rounded-3xl bg-white/95 border border-black/5 p-6 md:p-7 shadow-lg">
+            <h2 class="text-2xl font-display">Quick Actions</h2>
+            <div class="mt-4 grid gap-3 text-sm">
+                <a href="/shop" class="px-4 py-3 rounded-xl bg-ink text-white text-center">Go To Shop</a>
+                <a href="/cart" class="px-4 py-3 rounded-xl bg-zinc-100 text-center">View Cart</a>
+                <a href="/users/logout" class="px-4 py-3 rounded-xl bg-red-100 text-red-700 text-center">Logout</a>
+            </div>
+        </section>
+    </div>
+</main>
+
+<%- include('./partials/footer') %>

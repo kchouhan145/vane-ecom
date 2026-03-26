@@ -1,15 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('./partials/header') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Vane | Home</title>
-</head>
+<% if (typeof error !== 'undefined' && error.length > 0) { %>
+    <div class="fixed top-20 left-1/2 -translate-x-1/2 p-3 rounded-xl bg-red-500 z-30 shadow-lg">
+        <span class="inline-block mt-1 mb-1 text-white">
+            <%= error %>
+        </span>
+    </div>
+<% } %>
 
-<body>
-    <h1 class="text-3xl">Hello,Welcome to the Vane | Beyond the Trend</h1>
-</body>
+<main class="pt-28 pb-10 px-4 md:px-10">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 items-stretch">
+        <section class="rounded-3xl bg-ink text-white p-8 md:p-10 shadow-2xl relative overflow-hidden min-h-[520px]">
+            <div class="absolute -top-16 -right-16 w-56 h-56 bg-caramel rounded-full blur-2xl opacity-40"></div>
+            <p class="uppercase tracking-[0.2em] text-xs text-white/70">Vane</p>
+            <h1 class="mt-3 text-4xl md:text-5xl font-display leading-tight">Carry Style. Own The Moment.</h1>
+            <p class="mt-4 text-white/75 max-w-xl">Beyond the trend. Vane blends statement silhouettes with everyday comfort through premium materials and smart design.</p>
 
-</html>
+            <div class="mt-8 grid grid-cols-2 gap-4">
+                <img class="h-40 md:h-48 w-full object-cover rounded-2xl" src="/images/1bag.png" alt="Bag 1">
+                <img class="h-40 md:h-48 w-full object-cover rounded-2xl" src="/images/2bag.png" alt="Bag 2">
+                <img class="h-40 md:h-48 w-full object-cover rounded-2xl" src="/images/4bag.png" alt="Bag 4">
+                <img class="h-40 md:h-48 w-full object-cover rounded-2xl" src="/images/6bag.png" alt="Bag 6">
+            </div>
+        </section>
+
+        <section class="grid gap-5 content-start">
+            <div class="rounded-3xl bg-white/90 border border-black/5 p-6 md:p-7 shadow-xl">
+                <h3 class="text-2xl font-display">Create Your Vane Account</h3>
+                <p class="text-sm text-black/60 mt-1">Join now to explore curated bags and new drops.</p>
+                <form class="mt-5 space-y-3" autocomplete="off" action="/users/register" method="post">
+                    <input class="bg-zinc-100 block w-full px-4 py-3 rounded-xl border border-zinc-200" type="text" placeholder="Full Name" name="fullName">
+                    <input class="bg-zinc-100 block w-full px-4 py-3 rounded-xl border border-zinc-200" type="email" placeholder="Email" name="email">
+                    <input class="bg-zinc-100 block w-full px-4 py-3 rounded-xl border border-zinc-200" type="password" placeholder="Password" name="password">
+                    <input class="w-full px-5 py-3 rounded-xl bg-caramel text-white font-medium cursor-pointer" type="submit" value="Create My Account">
+                </form>
+            </div>
+
+            <div class="rounded-3xl bg-white/90 border border-black/5 p-6 md:p-7 shadow-xl">
+                <h3 class="text-2xl font-display">Already Have an Account?</h3>
+                <p class="text-sm text-black/60 mt-1">Use the dedicated user login page for quick access.</p>
+                <a href="/users/login" class="mt-5 inline-flex w-full justify-center px-5 py-3 rounded-xl bg-ink text-white font-medium">Go to User Login</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('./partials/footer') %>

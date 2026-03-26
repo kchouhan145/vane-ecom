@@ -1,0 +1,40 @@
+<%- include('./partials/header') %>
+    <main class="pt-28 pb-10 px-4 md:px-10">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-4 gap-6">
+            <aside class="lg:col-span-1">
+                <div class="rounded-3xl bg-white/90 border border-black/5 p-5 shadow-md sticky top-28">
+                    <h2 class="text-xl font-display">Admin Panel</h2>
+                    <div class="mt-4 space-y-2 text-sm">
+                        <a class="block px-3 py-2 rounded-xl bg-black text-white" href="/owners/admin">All Products</a>
+                        <a class="block px-3 py-2 rounded-xl bg-zinc-100" href="/owners/create">Create New Product</a>
+                    </div>
+                    <img class="mt-6 rounded-2xl h-40 w-full object-cover" src="/images/7bag.png" alt="Admin preview">
+                </div>
+            </aside>
+
+            <section class="lg:col-span-3">
+                <div class="flex items-end justify-between mb-4">
+                    <h1 class="text-3xl font-display">Manage Products</h1>
+                    <p class="text-sm text-black/60"><%= products.length %> items</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+                    <% products.forEach(function(product){ %>
+                    <article class="rounded-2xl overflow-hidden border border-black/5 bg-white/95 shadow-md">
+                        <div class="h-56 flex items-center justify-center" style="background-color: <%= product.bgcolor || '#f4f4f5' %>;">
+                            <img class="h-44 object-contain" src="/images/<%= product.image || product.imgae || '1bag.png' %>" alt="<%= product.name %>">
+                        </div>
+                        <div class="p-4 flex justify-between items-center" style="background-color: <%= product.panelcolor || '#ffffff' %>; color: <%= product.textcolor || '#111827' %>;">
+                            <div>
+                                <h3 class="font-medium"><%= product.name %></h3>
+                                <h4 class="text-sm">₹ <%= product.price %></h4>
+                            </div>
+                            <a class="text-sm px-3 py-2 rounded-xl bg-red-100 text-red-700" href="/products/delete/<%= product._id %>">Delete</a>
+                        </div>
+                    </article>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('./partials/footer') %>

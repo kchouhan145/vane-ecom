@@ -1,7 +1,7 @@
 {
-  "name": "bagecom",
+  "name": "vane",
   "version": "1.0.0",
-  "description": "",
+  "description": "Vane - Beyond the trend",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
