@@ -1,9 +1,13 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/Vane-ecom");
+// mongoose.connect("mongodb://localhost:27017/vane-ecom");
 
 const userSchema = mongoose.Schema({
-    fullName:String,
+    fullName:{
+        type:String,
+        minLenght:3,
+        trim:true,
+    },
     email:String,
     password:String,
     cart:{
